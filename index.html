@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <title>TechDepot</title>
+</head>
+<body class="body">
+
+  <nav>
+    <section class="bar">
+      <div class="menu">|||</div>
+      <div class="navbar-left">
+        <img src="./logos/logo.svg" alt="logo" class="logo">
+  
+        <ul>
+          <li>
+            <a href="/">All</a>
+          </li>
+          <li>
+            <a href="/">Cells</a>
+          </li>
+          <li>
+            <a href="/">Tools</a>
+          </li>
+          <li>
+            <a href="/">Screens</a>
+          </li>
+          <li>
+            <a href="/">Glue</a>
+          </li>
+          <li>
+            <a href="/">kits</a>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="navbar-right">
+        <ul>
+          <li class="navbar-desktop">Menu</li>
+          <li class="navbar-shopping-cart">
+            <img src="./icons/cart_menu.svg" alt="shopping cart">
+            <div class="counter"></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="desktop-menu desktop-menu-hide">
+      <ul>
+        <li>
+          <a href="/" class="desktop-orders">My orders</a>
+        </li>
+  
+        <li>
+          <a href="/" class="desktop-account">My account</a>
+        </li>
+  
+        <li>
+          <a href="/" class="desktop-signout">Sign out</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mobile-menu mobile-menu-hide">
+      <h3 class="title">CATEGORIES</h3>
+
+      <ul>
+        <li>
+          <a href="/">All</a>
+        </li>
+        <li>
+          <a href="/">Cells</a>
+        </li>
+        <li>
+          <a href="/">Tools</a>
+        </li>
+        <li>
+          <a href="/">Screens</a>
+        </li>
+        <li>
+          <a href="/">Glue</a>
+        </li>
+        <li>
+          <a href="/">kits</a>
+        </li>
+      </ul>
+  
+      <ul>
+        <li>
+          <a href="/">My orders</a>
+        </li>
+        <li>
+          <a href="/">My account</a>
+        </li>
+      </ul>
+  
+      <ul>
+        <li>
+          <a href="/" id="email">techdepo@tech.com</a>
+        </li>
+        <li>
+          <a href="/" id="sign-out">Sign out</a>
+        </li>
+      </ul>
+
+    </div>
+
+    <aside class="product-detail product-detail-hide">
+
+      <div class="title-container">
+        <img src="./icons/flechita.svg" alt="arrow">
+        <h3 class="title">SHOPING CART</h3>
+      </div>
+  
+      <div class="my-order-content"></div>
+
+      <div class="order">
+        <p><span>Total</span></p>
+        <p class="total-Amount"></p>
+      </div>
+
+      <div class="cart-empty">
+        <p>Shopping Cart is empty</p>
+      </div>
+
+      <button class="primary-button">Checkout</button>
+      
+    </aside>
+
+    <aside class="product-detail-item inactive">
+      <div class="product-detail-close x-close">X</div>
+
+      <img  class="img-src" src="" alt="bike">
+      <div class="product-detail-info">
+        <p class="price-detail"></p>
+        <p class="name-Title"></p>
+        <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+        <button class="primary-button add-to-cart-button"> Add to cart </button>
+      </div>
+
+    </aside>
+  </nav>
+
+  <div class="dark inactive">
+    
+  </div>
+
+  <section class="main-container">
+    <div class="cards-container">
+
+    </div>
+  </section>
+
+  <script src="./main.js"></script>
+</body>
+</html>
