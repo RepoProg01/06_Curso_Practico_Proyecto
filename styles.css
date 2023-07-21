@@ -43,23 +43,27 @@ body {
 .scroll-off {
   overflow: hidden;
 }
+.active{
+  display: flex;
+}
 .inactive {
   display: none;
 }
 .dark{
   position: absolute;
   top: 61px;
-  left: 0px;
-  width: 100vw;
+  left: 0;
+  right: 0;
   height: 100vh;
   background-color: var(--background-fade);
-  z-index: 2;
   opacity: 0%;
   transition: 700ms;
+  z-index: -4;
 }
 .background-dark{
   transition: 700ms;
   opacity: 100%;
+  
 }
 
 /* Navbar (general) */
@@ -178,7 +182,7 @@ nav{
   border-radius: 0px 0px 9px 9px;
   padding: 20px 20px 0 20px;
   transition: 700ms;
-  z-index: -1;
+  z-index: -3;
 }
 .desktop-menu-hide{
   transition: 700ms;
@@ -214,14 +218,17 @@ nav{
 
 /* Menu en mobile */
 .mobile-menu {
-  background-color: var(--background-color);
   width: 200px;
   position: absolute;
   top: 60px;
   left: -1px;
+  width: 200px;
   padding: 0px 24px 24px 24px;
-  transition: 700ms;
+  background-color: var(--background-color);
+ 
   border: 1px solid var(--borders);
+  transition: 700ms;
+  z-index: -3;
 }
 .mobile-menu-hide {
   transition-timing-function: ease-in-out;
@@ -291,7 +298,7 @@ nav{
   right: -1px;
   border: 1px solid var(--borders);
   transition: 700ms;
-  z-index: -1;
+  z-index: -3;
 }
 .product-detail-hide {
   transition: 700ms;
@@ -322,8 +329,6 @@ nav{
 .shopping-cart figure img {
   width: 70px;
   height: 70px;
-  border: 1px solid var(--borders);
-  border-radius: 20px;
   object-fit:contain;
 }
 .shopping-cart p:nth-child(2) {
@@ -414,14 +419,13 @@ nav{
 /* Product List */
 .main-container{
   margin-top: 87px;
-  z-index: 1;
 }
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
-  gap: 26px;
+  gap: 20px;
   place-content: center;
-  margin: 20px 0px;
+  margin: 20px 10px;
 }
 .product-card {
   display: flex;
@@ -466,7 +470,7 @@ nav{
   justify-content: space-between;
   align-items: center;
   gap: 5px;
-  margin: 12px 0px;
+  margin: 12px 0px 0px 0px;
 }
 .product-text-container {
   display: flex;
@@ -491,6 +495,9 @@ nav{
   font-size: var(--md);
   color: var(--text-titles);
 }
+.product-description-div {
+  height: 70px;
+}
 .product-info figure {
   width: 38px;
   height: 38px;
@@ -510,21 +517,28 @@ nav{
 
 /* product-detail-item */
 .product-detail-item {
-  border: 1px solid var(--borders);
-  background-color: var(--background-color);
+  /* display: flex; */
   position: absolute;
   top: 60px;
   right: 0px;
+  left: 0px;
+  height: 100vh;
+  justify-content: center;
+  z-index: 2;
+}
+.product-detail-container {
+  position: relative;
   width: 310px;
+  height: fit-content;
   padding: 24px;
-  position: absolute;
-  right: 0;
+  border: 1px solid var(--borders);
+  background-color: var(--background-color);
 }
 .product-detail-close {
   position: absolute;
   top: 4px;
   left: 4px;
-  z-index: 2; 
+  z-index: 1; 
 }
 .img-src {
   width: 290px;
@@ -538,7 +552,6 @@ nav{
 .product-detail-info {
   margin: 12px 12px 0px 12px;
 }
-
 .price-detail {
   font-weight: 700;
   font-size: var(--lg);
@@ -560,8 +573,6 @@ nav{
   margin-bottom: 36px;
   color: var(--black);
 }
-
-
 .add-to-cart-button {
   display: flex;
   align-items: center;
@@ -569,6 +580,37 @@ nav{
 }
 .imgItem{
   cursor: pointer;
+}
+
+/* banner */
+.banner-top{
+  position: absolute;
+  top: 61px;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  justify-content: center;
+  z-index: 4;
+}
+.banner-container{
+  width: 250px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  border: 1px solid var(--text-menu-up);
+  margin-top: 90px;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: rgb(255, 251, 251);
+  
+}
+.banner p {
+  font-size: var(--lg);
+  font-weight: 700;
+  color: var(--link);
+  margin: 0;
 }
 
 @media (max-width: 640px) {
@@ -589,7 +631,6 @@ nav{
   }
   .cards-container {
     grid-template-columns: repeat(auto-fill, 160px);
-    gap: 15px;
   }
   .product-card {
     width: 140px;
@@ -597,6 +638,9 @@ nav{
   .product-card img {
     width: 130px;
     height: 130px;
+  }
+  .product-detail-item {
+    top: 60px;
   }
 }
 

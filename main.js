@@ -20,6 +20,15 @@ const counter = document.querySelector(".counter");
 const cartEmpty = document.querySelector(".cart-empty")
 const addToCartButton = document.querySelector(".add-to-cart-button");
 
+const desktopAll = document.querySelector(".desktop-all");
+const desktopCells = document.querySelector(".desktop-cells");
+const desktopTools = document.querySelector(".desktop-tools");
+const desktopScreens = document.querySelector(".desktop-screens");
+const desktopGlue = document.querySelector(".desktop-glue");
+const desktopkits = document.querySelector(".desktop-kits");
+
+const bannerTop = document.querySelector(".banner-top");
+
 let amount = 0;
 let numItems = 0;
 counter.innerHTML = numItems;
@@ -31,6 +40,12 @@ menuHamIcon.addEventListener('click', mobilFunction);
 menuDesktop.addEventListener('click', desktopFunction);
 menuCarritoIcon.addEventListener('click', asideFunction);
 
+desktopAll.addEventListener("click", allf);
+desktopCells.addEventListener("click", origin);
+desktopTools.addEventListener("click", origin);
+desktopScreens.addEventListener("click", origin);
+desktopGlue.addEventListener("click", origin);
+desktopkits.addEventListener("click", origin);
 
 function mobilFunction(){
   evaluation("mobilArgument");
@@ -40,6 +55,16 @@ function desktopFunction(){
 }
 function asideFunction(){
   evaluation("asideArgument");
+}
+function setOnDark(){
+  backgroundFade.classList.remove("inactive");
+  delayBackground()
+  body.classList.add("scroll-off");
+}
+function setOffDark(){
+  backgroundFade.classList.remove("background-dark");
+  delayInactive();
+  body.classList.remove("scroll-off");
 }
 function evaluation(status){
   if(status == "mobilArgument"){
@@ -61,16 +86,13 @@ function evaluation(status){
     aside.classList.toggle('product-detail-hide');
   }
   if(!mobileMenu.classList.contains('mobile-menu-hide') || !desktopMenu.classList.contains('desktop-menu-hide') || !aside.classList.contains('product-detail-hide')){
-    backgroundFade.classList.remove("inactive");
-    delayBackground()
-    body.classList.add("scroll-off");
+    setOnDark();
   }
   if(mobileMenu.classList.contains('mobile-menu-hide') && desktopMenu.classList.contains('desktop-menu-hide') && aside.classList.contains('product-detail-hide')){
-    backgroundFade.classList.remove("background-dark");
-    delayInactive();
-    body.classList.remove("scroll-off");
+    setOffDark();
   }
 }
+
 function delayBackground(){
   setTimeout(()=>{
     backgroundFade.classList.add("background-dark");
@@ -81,6 +103,7 @@ function delayInactive(){
     backgroundFade.classList.add("inactive");
   }, 700);
 }
+
 function closeAll(){
   mobileMenu.classList.add('mobile-menu-hide');
   menuHamIcon.classList.remove("menu-open");
@@ -90,6 +113,7 @@ function closeAll(){
   delayInactive();
   body.classList.remove("scroll-off");
 }
+
 function productDetailsOpen(event){
 
   const imgSelect = event.target.currentSrc;
@@ -102,7 +126,12 @@ function productDetailsOpen(event){
 
   addToCartButton.addEventListener("click", addToCart);
   productDetalItem.classList.remove("inactive");
-  
+  productDetalItem.classList.add("active");
+  // setOnDark();
+  backgroundFade.classList.remove("inactive");
+  delayBackground()
+  // body.classList.add("scroll-off");
+
 }
 function checkCart(){
   if(amount == 0){
@@ -117,6 +146,22 @@ function checkCart(){
     cartEmpty.classList.add("inactive");
   }
 }
+
+function activeBanner(){
+  bannerTop.classList.remove("inactive");
+  bannerTop.classList.add("active");
+  setOnDark();
+ 
+  setTimeout(()=>{
+    bannerTop.classList.remove("active");
+    bannerTop.classList.add("inactive");
+    // setOffDark();
+    backgroundFade.classList.remove("background-dark");
+    delayInactive();
+    // body.classList.remove("scroll-off");
+  },1500);
+}
+
 function addToCart(event){
   let imgCar;
   let descCart;
@@ -172,7 +217,9 @@ function addToCart(event){
   numItems++;
   counter.innerHTML = numItems;
   checkCart();
+  activeBanner();
 }
+
 function clear(event){
   myOrderContent.removeChild(event.target.parentElement)
   numItems--;
@@ -182,100 +229,180 @@ function clear(event){
   totalAmount.innerText = `$ ${amount}`;
   checkCart();
 }
+
 function productDetailsClose(){
   productDetalItem.classList.add("inactive");
+  productDetalItem.classList.remove("active");
+  setOffDark();
 }
 
 const productList = [];
 
 productList.push({
+  category: 'tools',
   name: 'Separadora de pantalla',
   price: 1190,
   image: 'https://m.media-amazon.com/images/I/71ST-RSRfFL._AC_SL1500_.jpg',
 });
 productList.push({
-  name: 'Pantalla LCD',
-  price: 488,
-  image: 'https://m.media-amazon.com/images/I/61+I00feV9L._AC_SL1100_.jpg',
-});
-productList.push({
-  name: 'Pantalla LCD',
-  price: 504,
-  image: 'https://m.media-amazon.com/images/I/51wU8SLM13L._AC_.jpg',
-});
-productList.push({
+  category: 'tools',
   name: 'Separadora de pantalla LCD',
   price: 1052,
   image: 'https://m.media-amazon.com/images/I/41wvzxwA5UL._AC_.jpg',
 });
 productList.push({
+  category: 'tools',
   name: 'Separadora de pantalla',
   price: 1032,
   image: 'https://m.media-amazon.com/images/I/61f1PfgQXYL._AC_SL1001_.jpg',
 });
 productList.push({
+  category: 'tools',
   name: 'Almohadilla de Calefacción Portátil',
   price: 1455,
   image: 'https://m.media-amazon.com/images/I/61Nk4eY-k1L._AC_SL1500_.jpg',
 });
 productList.push({
+  category: 'tools',
   name: 'Abrazadera de fijación',
   price: 267,
   image: 'https://m.media-amazon.com/images/I/61vAsvgA9VL._AC_SL1500_.jpg',
 });
+
+
 productList.push({
+  category: 'screens',
+  name: 'Pantalla LCD',
+  price: 488,
+  image: 'https://m.media-amazon.com/images/I/61+I00feV9L._AC_SL1100_.jpg',
+});
+productList.push({
+  category: 'screens',
+  name: 'Pantalla LCD',
+  price: 504,
+  image: 'https://m.media-amazon.com/images/I/51wU8SLM13L._AC_.jpg',
+});
+productList.push({
+  category: 'glue',
   name: 'T7000 50ml Pegamento',
   price: 120,
   image: 'https://m.media-amazon.com/images/I/41c8hKlbvhL._SX425_.jpg',
 });
 productList.push({
+  category: 'glue',
   name: 'B7000 50ml Pegamento',
   price: 115,
   image: 'https://m.media-amazon.com/images/I/31y6HFmlawL.jpg',
 });
 
-function renderProducts(arr) {
+
+productList.push({
+  category: 'cells',
+  name: 'Xiaomi Celular Redmi 12C',
+  price: 2048,
+  image: 'https://m.media-amazon.com/images/I/51cU7HevYPL._AC_SL1000_.jpg',
+});
+productList.push({
+  category: 'cells',
+  name: 'DOOGEE N50 2023',
+  price: 3204,
+  image: 'https://m.media-amazon.com/images/I/71455e5RWrL._AC_SL1500_.jpg',
+});
+productList.push({
+  category: 'cells',
+  name: 'Samsung Galaxy S20 Plus',
+  price: 6499,
+  image: 'https://m.media-amazon.com/images/I/61kaZwuwdzL._AC_SL1200_.jpg',
+});
+productList.push({
+  category: 'cells',
+  name: 'SAMSUNG Galaxy M23',
+  price: 6999,
+  image: 'https://m.media-amazon.com/images/I/61nNowhLzwL._AC_SL1500_.jpg',
+});
+productList.push({
+  category: 'cells',
+  name: 'motorola Edge 30 Neo',
+  price: 6999,
+  image: 'https://m.media-amazon.com/images/I/61F2s51MtVL._AC_SL1500_.jpg',
+});
+productList.push({
+  category: 'cells',
+  name: 'Celular Poco X5 Pro 5G Black',
+  price: 5799,
+  image: 'https://m.media-amazon.com/images/I/71BJz1Hyz6L._AC_SL1000_.jpg',
+});
+
+function origin(event){
+  if(event.target.className == "desktop-all"){
+    renderProducts(productList, 'all');
+  }
+  else if(event.target.className == "desktop-cells"){
+    renderProducts(productList, 'cells');
+  }
+  else if(event.target.className == "desktop-tools"){
+    renderProducts(productList, 'tools');
+  }
+  else if(event.target.className == "desktop-screens"){
+    renderProducts(productList, 'screens');
+  }
+  else if(event.target.className == "desktop-glue"){
+    renderProducts(productList, 'glue');
+  }
+  else if(event.target.className == "desktop-kits"){
+    renderProducts(productList, 'kits');
+  }
+}
+function allf(){
+  cardsContainer.remove(".product-card");
+}
+
+function renderProducts(arr, category) {
+  
   for (product of arr) {
-    const productImgCart = document.createElement('img');
-    productImgCart.setAttribute('id', 'cart-img');
-    productImgCart.setAttribute('src', './icons/cart.svg');
-    productImgCart.addEventListener("click", addToCart);
-    const productInfoFigure = document.createElement('figure');
-    productInfoFigure.appendChild(productImgCart);
-
-    const productName = document.createElement('p');
-    productName.innerText = product.name;
-    const productDescriptionDiv = document.createElement('div');
-    productDescriptionDiv.setAttribute("class", "product-description-div")
-    productDescriptionDiv.appendChild(productName);
-
-    const productPrice = document.createElement('p');
-    productPrice.innerText = product.price;
-    const productSign = document.createElement('p');
-    productSign.innerText = "$";
-    const productInfoDiv = document.createElement('div');
-    productInfoDiv.setAttribute("class","product-info-div")
-    productInfoDiv.append(productSign, productPrice);
-    
-    const productTextcontainer = document.createElement('div');
-    productTextcontainer.setAttribute("class", "product-text-container")
-    productTextcontainer.append(productInfoDiv, productDescriptionDiv);
-
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
-    productInfo.append(productTextcontainer, productInfoFigure);
-
-    const productImg = document.createElement('img');
-    productImg.setAttribute('src', product.image);
-    productImg.addEventListener('click', productDetailsOpen);
-
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
-    productCard.append(productImg, productInfo);
-
-    cardsContainer.appendChild(productCard);
+    if(product.category == category){
+      const productImgCart = document.createElement('img');
+      productImgCart.setAttribute('id', 'cart-img');
+      productImgCart.setAttribute('src', './icons/cart.svg');
+      productImgCart.addEventListener("click", addToCart);
+      const productInfoFigure = document.createElement('figure');
+      productInfoFigure.appendChild(productImgCart);
+  
+      const productName = document.createElement('p');
+      productName.innerText = product.name;
+      const productDescriptionDiv = document.createElement('div');
+      productDescriptionDiv.setAttribute("class", "product-description-div")
+      productDescriptionDiv.appendChild(productName);
+  
+      const productPrice = document.createElement('p');
+      productPrice.innerText = product.price;
+      const productSign = document.createElement('p');
+      productSign.innerText = "$";
+      const productInfoDiv = document.createElement('div');
+      productInfoDiv.setAttribute("class","product-info-div")
+      productInfoDiv.append(productSign, productPrice);
+      
+      const productTextcontainer = document.createElement('div');
+      productTextcontainer.setAttribute("class", "product-text-container")
+      productTextcontainer.append(productInfoDiv, productDescriptionDiv);
+  
+      const productInfo = document.createElement('div');
+      productInfo.classList.add('product-info');
+      productInfo.append(productTextcontainer, productInfoFigure);
+  
+      const productImg = document.createElement('img');
+      productImg.setAttribute('src', product.image);
+      productImg.addEventListener('click', productDetailsOpen);
+  
+      const productCard = document.createElement('div');
+      productCard.classList.add('product-card');
+      productCard.append(productImg, productInfo);
+  
+      cardsContainer.appendChild(productCard);
+    }
   }
 }
 
-renderProducts(productList);
+
+
 

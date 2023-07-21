@@ -8,9 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="./styles.css">
-
   <title>TechDepot</title>
 </head>
 <body class="body">
@@ -23,22 +21,22 @@
   
         <ul>
           <li>
-            <a href="/">All</a>
+            <a class="desktop-all" href="#">All</a>
           </li>
           <li>
-            <a href="/">Cells</a>
+            <a class="desktop-cells" href="#">Cells</a>
           </li>
           <li>
-            <a href="/">Tools</a>
+            <a class="desktop-tools" href="#">Tools</a>
           </li>
           <li>
-            <a href="/">Screens</a>
+            <a class="desktop-screens" href="#">Screens</a>
           </li>
           <li>
-            <a href="/">Glue</a>
+            <a class="desktop-glue" href="#">Glue</a>
           </li>
           <li>
-            <a href="/">kits</a>
+            <a class="desktop-kits" href="#">kits</a>
           </li>
         </ul>
       </div>
@@ -53,6 +51,10 @@
         </ul>
       </div>
     </section>
+
+    <div class="dark inactive">
+    
+    </div>
 
     <div class="desktop-menu desktop-menu-hide">
       <ul>
@@ -75,22 +77,22 @@
 
       <ul>
         <li>
-          <a href="/">All</a>
+          <a class="desktop-all" href="#">All</a>
         </li>
         <li>
-          <a href="/">Cells</a>
+          <a class="desktop-cells" href="#">Cells</a>
         </li>
         <li>
-          <a href="/">Tools</a>
+          <a class="desktop-tools" href="#">Tools</a>
         </li>
         <li>
-          <a href="/">Screens</a>
+          <a class="desktop-screens" href="#">Screens</a>
         </li>
         <li>
-          <a href="/">Glue</a>
+          <a class="desktop-glue" href="#">Glue</a>
         </li>
         <li>
-          <a href="/">kits</a>
+          <a class="desktop-kits" href="#">kits</a>
         </li>
       </ul>
   
@@ -136,29 +138,39 @@
       
     </aside>
 
-    <aside class="product-detail-item inactive">
-      <div class="product-detail-close x-close">X</div>
+    <div class="banner-top inactive">
+      <div class="banner-container">
+        <div class="banner">
+          <p>Item has been added to cart</p>
+        </div>
+      </div>
+    </div>
 
-      <img  class="img-src" src="" alt="bike">
+  </nav>
+
+  <aside class="product-detail-item inactive">
+    <div class="product-detail-container">
+      <div class="product-detail-close x-close">X</div>
+      <img  class="img-src" src="" alt="product">
       <div class="product-detail-info">
         <p class="price-detail"></p>
         <p class="name-Title"></p>
         <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
         <button class="primary-button add-to-cart-button"> Add to cart </button>
       </div>
+    </div>
+  </aside>
 
-    </aside>
-  </nav>
-
-  <div class="dark inactive">
-    
-  </div>
 
   <section class="main-container">
     <div class="cards-container">
 
     </div>
   </section>
+
+ 
+
+
 
   <script src="./main.js"></script>
 </body>
