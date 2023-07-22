@@ -1,71 +1,185 @@
-const backgroundFade = document.querySelector(".dark");
-const menuDesktop = document.querySelector('.navbar-desktop');
-const desktopMenu = document.querySelector('.desktop-menu');
-const menuHamIcon = document.querySelector('.menu');
-const mobileMenu = document.querySelector('.mobile-menu');
-const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
-const cardsContainer = document.querySelector('.cards-container');
-const productDetalItem = document.querySelector(".product-detail-item");
-const productDetailsCl = document.querySelector(".product-detail-close");
+// ######################################### var & const #########################################
+// body
 const body = document.querySelector(".body");
-const imgSrc = document.querySelector(".img-src");
-const nameTitle = document.querySelector(".name-Title")
-const priceDetail = document.querySelector(".price-detail");
-const myOrderContent = document.querySelector(".my-order-content");
-const totalAmount = document.querySelector(".total-Amount");
-const order = document.querySelector(".order");
-const primaryButton = document.querySelector(".primary-button")
-const counter = document.querySelector(".counter");
-const cartEmpty = document.querySelector(".cart-empty")
-const addToCartButton = document.querySelector(".add-to-cart-button");
-
+// ------------------------------------------- navbar ---------------------------------------------
+// menu hamburgesa icon
+const menuHamIcon = document.querySelector('.menu');
+// mobile menu
+const mobileMenu = document.querySelector('.mobile-menu');
+// desktop menus
 const desktopAll = document.querySelector(".desktop-all");
 const desktopCells = document.querySelector(".desktop-cells");
 const desktopTools = document.querySelector(".desktop-tools");
 const desktopScreens = document.querySelector(".desktop-screens");
 const desktopGlue = document.querySelector(".desktop-glue");
 const desktopkits = document.querySelector(".desktop-kits");
-
+// menu desktop icon
+const menuDesktop = document.querySelector('.navbar-desktop');
+// desktop menu
+const desktopMenu = document.querySelector('.desktop-menu');
+// shopping cart icon
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+// shopping cart window
+const aside = document.querySelector('.product-detail');
+const myOrderContent = document.querySelector(".my-order-content");
+const order = document.querySelector(".order");
+const totalAmount = document.querySelector(".total-Amount");
+const cartEmpty = document.querySelector(".cart-empty")
+const primaryButton = document.querySelector(".primary-button")
+// shopping cart counter
+const counter = document.querySelector(".counter");
+// fade background
+const backgroundFade = document.querySelector(".dark");
+// banner
 const bannerTop = document.querySelector(".banner-top");
+
+// -------------------------------------------- products ---------------------------------------------
+// main-container
+const cardsContainer = document.querySelector('.cards-container');
+const productCard = document.querySelector('.product-card');
+// -------------------------------------------- details ----------------------------------------------
+// product-detail=items
+const productDetalItem = document.querySelector(".product-detail-item");
+const productDetailsCl = document.querySelector(".product-detail-close");
+const imgSrc = document.querySelector(".img-src");
+const priceDetail = document.querySelector(".price-detail");
+const nameTitle = document.querySelector(".name-Title")
+const addToCartButton = document.querySelector(".add-to-cart-button");
+
 
 let amount = 0;
 let numItems = 0;
 counter.innerHTML = numItems;
-checkCart();
 
-productDetailsCl.addEventListener("click", productDetailsClose);
-backgroundFade.addEventListener("click", closeAll);
+// ######################################### Array & objects #########################################
+const productList = [];
+// objects products
+productList.push({
+  category: 'tools',
+  name: 'Separadora de pantalla',
+  price: 1190,
+  image: 'https://m.media-amazon.com/images/I/71ST-RSRfFL._AC_SL1500_.jpg',
+});
+productList.push({
+  category: 'tools',
+  name: 'Separadora de pantalla LCD',
+  price: 1052,
+  image: 'https://m.media-amazon.com/images/I/41wvzxwA5UL._AC_.jpg',
+});
+productList.push({
+  category: 'tools',
+  name: 'Separadora de pantalla',
+  price: 1032,
+  image: 'https://m.media-amazon.com/images/I/61f1PfgQXYL._AC_SL1001_.jpg',
+});
+productList.push({
+  category: 'tools',
+  name: 'Almohadilla de Calefacción Portátil',
+  price: 1455,
+  image: 'https://m.media-amazon.com/images/I/61Nk4eY-k1L._AC_SL1500_.jpg',
+});
+productList.push({
+  category: 'tools',
+  name: 'Abrazadera de fijación',
+  price: 267,
+  image: 'https://m.media-amazon.com/images/I/61vAsvgA9VL._AC_SL1500_.jpg',
+});
+productList.push({
+  category: 'screens',
+  name: 'Pantalla LCD',
+  price: 488,
+  image: 'https://m.media-amazon.com/images/I/61+I00feV9L._AC_SL1100_.jpg',
+});
+productList.push({
+  category: 'screens',
+  name: 'Pantalla LCD',
+  price: 504,
+  image: 'https://m.media-amazon.com/images/I/51wU8SLM13L._AC_.jpg',
+});
+productList.push({
+  category: 'glue',
+  name: 'T7000 50ml Pegamento',
+  price: 120,
+  image: 'https://m.media-amazon.com/images/I/41c8hKlbvhL._SX425_.jpg',
+});
+productList.push({
+  category: 'glue',
+  name: 'B7000 50ml Pegamento',
+  price: 115,
+  image: 'https://m.media-amazon.com/images/I/31y6HFmlawL.jpg',
+});
+productList.push({
+  category: 'cells',
+  name: 'Xiaomi Celular Redmi 12C',
+  price: 2048,
+  image: 'https://m.media-amazon.com/images/I/51cU7HevYPL._AC_SL1000_.jpg',
+});
+productList.push({
+  category: 'cells',
+  name: 'DOOGEE N50 2023',
+  price: 3204,
+  image: 'https://m.media-amazon.com/images/I/71455e5RWrL._AC_SL1500_.jpg',
+});
+productList.push({
+  category: 'cells',
+  name: 'Samsung Galaxy S20 Plus',
+  price: 6499,
+  image: 'https://m.media-amazon.com/images/I/61kaZwuwdzL._AC_SL1200_.jpg',
+});
+productList.push({
+  category: 'cells',
+  name: 'SAMSUNG Galaxy M23',
+  price: 6999,
+  image: 'https://m.media-amazon.com/images/I/61nNowhLzwL._AC_SL1500_.jpg',
+});
+productList.push({
+  category: 'cells',
+  name: 'motorola Edge 30 Neo',
+  price: 6999,
+  image: 'https://m.media-amazon.com/images/I/61F2s51MtVL._AC_SL1500_.jpg',
+});
+productList.push({
+  category: 'cells',
+  name: 'Celular Poco X5 Pro 5G Black',
+  price: 5799,
+  image: 'https://m.media-amazon.com/images/I/71BJz1Hyz6L._AC_SL1000_.jpg',
+});
+
+// ######################################### addEventListeners #########################################
+// ------------------------------------------- navbar ---------------------------------------------
+// menu hamburgesa icon
 menuHamIcon.addEventListener('click', mobilFunction);
-menuDesktop.addEventListener('click', desktopFunction);
-menuCarritoIcon.addEventListener('click', asideFunction);
-
-desktopAll.addEventListener("click", allf);
+// desktop menus
+desktopAll.addEventListener("click", clearAllproducts);
 desktopCells.addEventListener("click", origin);
 desktopTools.addEventListener("click", origin);
 desktopScreens.addEventListener("click", origin);
 desktopGlue.addEventListener("click", origin);
 desktopkits.addEventListener("click", origin);
+// menu desktop icon
+menuDesktop.addEventListener('click', desktopFunction);
+// shopping cart icon
+menuCarritoIcon.addEventListener('click', asideFunction);
+// product-detail=items
+productDetailsCl.addEventListener("click", productDetailsClose);
+// fade background
+backgroundFade.addEventListener("click", closeAll);
 
+// ######################################### functions #########################################
+// ------------------------------------------- navbar ---------------------------------------------
+// menu hamburgesa icon
 function mobilFunction(){
   evaluation("mobilArgument");
 }
+// menu desktop icon
 function desktopFunction(){
   evaluation("desktopArgument");
 }
+// shopping cart icon
 function asideFunction(){
   evaluation("asideArgument");
 }
-function setOnDark(){
-  backgroundFade.classList.remove("inactive");
-  delayBackground()
-  body.classList.add("scroll-off");
-}
-function setOffDark(){
-  backgroundFade.classList.remove("background-dark");
-  delayInactive();
-  body.classList.remove("scroll-off");
-}
+// evaluation menus opened
 function evaluation(status){
   if(status == "mobilArgument"){
     desktopMenu.classList.add('desktop-menu-hide');
@@ -92,28 +206,35 @@ function evaluation(status){
     setOffDark();
   }
 }
-
+// fade background
+function closeAll(){
+  mobileMenu.classList.add('mobile-menu-hide');
+  menuHamIcon.classList.remove("menu-open");
+  desktopMenu.classList.add('desktop-menu-hide');
+  aside.classList.add('product-detail-hide');
+  setOffDark();
+}
+function setOnDark(){
+  backgroundFade.classList.remove("inactive");
+  delayBackground()
+  body.classList.add("scroll-off");
+}
 function delayBackground(){
   setTimeout(()=>{
     backgroundFade.classList.add("background-dark");
   }, 100);
+}
+function setOffDark(){
+  backgroundFade.classList.remove("background-dark");
+  delayInactive();
+  body.classList.remove("scroll-off");
 }
 function delayInactive(){
   setTimeout(()=>{
     backgroundFade.classList.add("inactive");
   }, 700);
 }
-
-function closeAll(){
-  mobileMenu.classList.add('mobile-menu-hide');
-  menuHamIcon.classList.remove("menu-open");
-  desktopMenu.classList.add('desktop-menu-hide');
-  aside.classList.add('product-detail-hide');
-  backgroundFade.classList.remove("background-dark");
-  delayInactive();
-  body.classList.remove("scroll-off");
-}
-
+// main-container
 function productDetailsOpen(event){
 
   const imgSelect = event.target.currentSrc;
@@ -127,41 +248,11 @@ function productDetailsOpen(event){
   addToCartButton.addEventListener("click", addToCart);
   productDetalItem.classList.remove("inactive");
   productDetalItem.classList.add("active");
-  // setOnDark();
-  backgroundFade.classList.remove("inactive");
-  delayBackground()
-  // body.classList.add("scroll-off");
-
-}
-function checkCart(){
-  if(amount == 0){
-    order.classList.add("inactive");
-    order.classList.remove("order-dispay-on");
-    primaryButton.classList.add("inactive");
-    cartEmpty.classList.remove("inactive");
-  }else{
-    order.classList.remove("inactive");
-    order.classList.add("order-dispay-on");
-    primaryButton.classList.remove("inactive");
-    cartEmpty.classList.add("inactive");
-  }
-}
-
-function activeBanner(){
-  bannerTop.classList.remove("inactive");
-  bannerTop.classList.add("active");
   setOnDark();
- 
-  setTimeout(()=>{
-    bannerTop.classList.remove("active");
-    bannerTop.classList.add("inactive");
-    // setOffDark();
-    backgroundFade.classList.remove("background-dark");
-    delayInactive();
-    // body.classList.remove("scroll-off");
-  },1500);
-}
+  delayBackground()
+  body.classList.add("scroll-off");
 
+}
 function addToCart(event){
   let imgCar;
   let descCart;
@@ -219,7 +310,30 @@ function addToCart(event){
   checkCart();
   activeBanner();
 }
-
+function checkCart(){
+  if(amount == 0){
+    order.classList.add("inactive");
+    order.classList.remove("order-dispay-on");
+    primaryButton.classList.add("inactive");
+    cartEmpty.classList.remove("inactive");
+  }else{
+    order.classList.remove("inactive");
+    order.classList.add("order-dispay-on");
+    primaryButton.classList.remove("inactive");
+    cartEmpty.classList.add("inactive");
+  }
+}
+function activeBanner(){
+  bannerTop.classList.remove("inactive");
+  bannerTop.classList.add("active");
+  setOnDark();
+ 
+  setTimeout(()=>{
+    bannerTop.classList.remove("active");
+    bannerTop.classList.add("inactive");
+    setOffDark();
+  },1500);
+}
 function clear(event){
   myOrderContent.removeChild(event.target.parentElement)
   numItems--;
@@ -229,110 +343,7 @@ function clear(event){
   totalAmount.innerText = `$ ${amount}`;
   checkCart();
 }
-
-function productDetailsClose(){
-  productDetalItem.classList.add("inactive");
-  productDetalItem.classList.remove("active");
-  setOffDark();
-}
-
-const productList = [];
-
-productList.push({
-  category: 'tools',
-  name: 'Separadora de pantalla',
-  price: 1190,
-  image: 'https://m.media-amazon.com/images/I/71ST-RSRfFL._AC_SL1500_.jpg',
-});
-productList.push({
-  category: 'tools',
-  name: 'Separadora de pantalla LCD',
-  price: 1052,
-  image: 'https://m.media-amazon.com/images/I/41wvzxwA5UL._AC_.jpg',
-});
-productList.push({
-  category: 'tools',
-  name: 'Separadora de pantalla',
-  price: 1032,
-  image: 'https://m.media-amazon.com/images/I/61f1PfgQXYL._AC_SL1001_.jpg',
-});
-productList.push({
-  category: 'tools',
-  name: 'Almohadilla de Calefacción Portátil',
-  price: 1455,
-  image: 'https://m.media-amazon.com/images/I/61Nk4eY-k1L._AC_SL1500_.jpg',
-});
-productList.push({
-  category: 'tools',
-  name: 'Abrazadera de fijación',
-  price: 267,
-  image: 'https://m.media-amazon.com/images/I/61vAsvgA9VL._AC_SL1500_.jpg',
-});
-
-
-productList.push({
-  category: 'screens',
-  name: 'Pantalla LCD',
-  price: 488,
-  image: 'https://m.media-amazon.com/images/I/61+I00feV9L._AC_SL1100_.jpg',
-});
-productList.push({
-  category: 'screens',
-  name: 'Pantalla LCD',
-  price: 504,
-  image: 'https://m.media-amazon.com/images/I/51wU8SLM13L._AC_.jpg',
-});
-productList.push({
-  category: 'glue',
-  name: 'T7000 50ml Pegamento',
-  price: 120,
-  image: 'https://m.media-amazon.com/images/I/41c8hKlbvhL._SX425_.jpg',
-});
-productList.push({
-  category: 'glue',
-  name: 'B7000 50ml Pegamento',
-  price: 115,
-  image: 'https://m.media-amazon.com/images/I/31y6HFmlawL.jpg',
-});
-
-
-productList.push({
-  category: 'cells',
-  name: 'Xiaomi Celular Redmi 12C',
-  price: 2048,
-  image: 'https://m.media-amazon.com/images/I/51cU7HevYPL._AC_SL1000_.jpg',
-});
-productList.push({
-  category: 'cells',
-  name: 'DOOGEE N50 2023',
-  price: 3204,
-  image: 'https://m.media-amazon.com/images/I/71455e5RWrL._AC_SL1500_.jpg',
-});
-productList.push({
-  category: 'cells',
-  name: 'Samsung Galaxy S20 Plus',
-  price: 6499,
-  image: 'https://m.media-amazon.com/images/I/61kaZwuwdzL._AC_SL1200_.jpg',
-});
-productList.push({
-  category: 'cells',
-  name: 'SAMSUNG Galaxy M23',
-  price: 6999,
-  image: 'https://m.media-amazon.com/images/I/61nNowhLzwL._AC_SL1500_.jpg',
-});
-productList.push({
-  category: 'cells',
-  name: 'motorola Edge 30 Neo',
-  price: 6999,
-  image: 'https://m.media-amazon.com/images/I/61F2s51MtVL._AC_SL1500_.jpg',
-});
-productList.push({
-  category: 'cells',
-  name: 'Celular Poco X5 Pro 5G Black',
-  price: 5799,
-  image: 'https://m.media-amazon.com/images/I/71BJz1Hyz6L._AC_SL1000_.jpg',
-});
-
+// render trigers
 function origin(event){
   if(event.target.className == "desktop-all"){
     renderProducts(productList, 'all');
@@ -353,10 +364,7 @@ function origin(event){
     renderProducts(productList, 'kits');
   }
 }
-function allf(){
-  cardsContainer.remove(".product-card");
-}
-
+// render function
 function renderProducts(arr, category) {
   
   for (product of arr) {
@@ -402,7 +410,17 @@ function renderProducts(arr, category) {
     }
   }
 }
+// product-detail=items
+function productDetailsClose(){
+  productDetalItem.classList.add("inactive");
+  productDetalItem.classList.remove("active");
+  setOffDark();
+}
+function clearAllproducts(event){
+  console.log(event);
+  //cardsContainer.remove();
+  // cardsContainer.remove(productCard);
+}
 
 
-
-
+checkCart();
