@@ -10,10 +10,11 @@
   <link rel="stylesheet" href="./styles.css">
   <title>TechDepot</title>
 </head>
+
 <body class="body">
+
   <!-- ---------------------navbar----------------------- -->
   <nav>
-
     <section class="bar">
       <div class="menu">|||</div>
       <div class="navbar-left">
@@ -52,108 +53,102 @@
         </ul>
       </div>
     </section>
-
-    <div class="dark inactive">
-    
-    </div>
-
-    <div class="mobile-menu mobile-menu-hide">
-      <h3 class="title">CATEGORIES</h3>
-
-      <ul>
-        <li>
-          <a class="desktop-all" href="#">All</a>
-        </li>
-        <li>
-          <a class="desktop-cells" href="#">Cells</a>
-        </li>
-        <li>
-          <a class="desktop-tools" href="#">Tools</a>
-        </li>
-        <li>
-          <a class="desktop-screens" href="#">Screens</a>
-        </li>
-        <li>
-          <a class="desktop-glue" href="#">Glue</a>
-        </li>
-        <li>
-          <a class="desktop-kits" href="#">kits</a>
-        </li>
-      </ul>
-  
-      <ul>
-        <li>
-          <a href="/">My orders</a>
-        </li>
-        <li>
-          <a href="/">My account</a>
-        </li>
-      </ul>
-  
-      <ul>
-        <li>
-          <a href="/" id="email">techdepo@tech.com</a>
-        </li>
-        <li>
-          <a href="/" id="sign-out">Sign out</a>
-        </li>
-      </ul>
-
-    </div>
-
-    <div class="desktop-menu desktop-menu-hide">
-      <ul>
-        <li>
-          <a href="/" class="desktop-orders">My orders</a>
-        </li>
-  
-        <li>
-          <a href="/" class="desktop-account">My account</a>
-        </li>
-  
-        <li>
-          <a href="/" class="desktop-signout">Sign out</a>
-        </li>
-      </ul>
-    </div>
-
-    <aside class="product-detail product-detail-hide">
-
-      <div class="title-container">
-        <img src="./icons/flechita.svg" alt="arrow">
-        <h3 class="title">SHOPING CART</h3>
-      </div>
-  
-      <div class="my-order-content"></div>
-
-      <div class="order">
-        <p><span>Total</span></p>
-        <p class="total-Amount"></p>
-      </div>
-
-      <div class="cart-empty">
-        <p>Shopping Cart is empty</p>
-      </div>
-
-      <button class="primary-button">Checkout</button>
-      
-    </aside>
-
-    <div class="banner-top inactive">
-      <div class="banner-container">
-        <div class="banner">
-          <p>Item has been added to cart</p>
-        </div>
-      </div>
-    </div>
-
   </nav>
-  <!-- ---------------------products----------------------- -->
-  <section class="main-container">
-    <div class="cards-container">
 
+  <!-- ---------------------mobile menu----------------------- -->
+  <div class="mobile-menu mobile-menu-hide">
+    <h3 class="title">CATEGORIES</h3>
+
+    <ul>
+      <li>
+        <a class="desktop-all" href="#">All</a>
+      </li>
+      <li>
+        <a class="desktop-cells" href="#">Cells</a>
+      </li>
+      <li>
+        <a class="desktop-tools" href="#">Tools</a>
+      </li>
+      <li>
+        <a class="desktop-screens" href="#">Screens</a>
+      </li>
+      <li>
+        <a class="desktop-glue" href="#">Glue</a>
+      </li>
+      <li>
+        <a class="desktop-kits" href="#">kits</a>
+      </li>
+    </ul>
+
+    <ul>
+      <li>
+        <a href="/">My orders</a>
+      </li>
+      <li>
+        <a href="/">My account</a>
+      </li>
+    </ul>
+
+    <ul>
+      <li>
+        <a href="/" id="email">techdepo@tech.com</a>
+      </li>
+      <li>
+        <a href="/" id="sign-out">Sign out</a>
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- ---------------------desktop menu----------------------- -->
+  <div class="desktop-menu desktop-menu-hide">
+    <ul>
+      <li>
+        <a href="/" class="desktop-orders">My orders</a>
+      </li>
+
+      <li>
+        <a href="/" class="desktop-account">My account</a>
+      </li>
+
+      <li>
+        <a href="/" class="desktop-signout">Sign out</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ---------------------product detail----------------------- -->
+  <aside class="product-detail product-detail-hide">
+
+    <div class="title-container">
+      <img src="./icons/flechita.svg" alt="arrow">
+      <h3 class="title">SHOPING CART</h3>
     </div>
-  </section>
+
+    <div class="my-order-content"></div>
+
+    <div class="order">
+      <p><span>Total</span></p>
+      <p class="total-Amount"></p>
+    </div>
+
+    <div class="cart-empty">
+      <p>Shopping Cart is empty</p>
+    </div>
+
+    <button class="primary-button">Checkout</button>
+    
+  </aside>
+
+  <!-- ---------------------banner----------------------- -->
+  <div class="banner-top inactive">
+    <div class="banner-container">
+      <div class="banner">
+        <p>Item has been added to cart</p>
+      </div>
+    </div>
+  </div>
+
   <!-- ---------------------details----------------------- -->
   <aside class="product-detail-item inactive">
     <div class="product-detail-container">
@@ -168,6 +163,18 @@
     </div>
   </aside>
 
+  <!-- ---------------------dark fade----------------------- -->
+  <div class="dark inactive"></div>
+
+  <!-- ---------------------product list----------------------- -->
+  <section class="main-container">
+    <div class="cards-container">
+
+    </div>
+  </section>
+
+  <!-- ---------------------js script----------------------- -->
   <script src="./main.js"></script>
+
 </body>
 </html>

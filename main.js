@@ -417,9 +417,11 @@ function productDetailsClose(){
   setOffDark();
 }
 function clearAllproducts(event){
-  console.log(event);
-  //cardsContainer.remove();
-  // cardsContainer.remove(productCard);
+  console.log(productCard);
+  
+  //cardsContainer.remove(productCard);
+  //productCard.remove("all");
+  //cardsContainer.removeChild(productCard[*]);
 }
 
 
