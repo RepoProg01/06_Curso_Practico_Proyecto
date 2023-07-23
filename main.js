@@ -7,12 +7,12 @@ const menuHamIcon = document.querySelector('.menu');
 // mobile menu
 const mobileMenu = document.querySelector('.mobile-menu');
 // desktop menus
-const desktopAll = document.querySelector(".desktop-all");
-const desktopCells = document.querySelector(".desktop-cells");
-const desktopTools = document.querySelector(".desktop-tools");
-const desktopScreens = document.querySelector(".desktop-screens");
-const desktopGlue = document.querySelector(".desktop-glue");
-const desktopkits = document.querySelector(".desktop-kits");
+const desktopAll = document.querySelectorAll(".desktop-all");
+const desktopCells = document.querySelectorAll(".desktop-cells");
+const desktopTools = document.querySelectorAll(".desktop-tools");
+const desktopScreens = document.querySelectorAll(".desktop-screens");
+const desktopGlue = document.querySelectorAll(".desktop-glue");
+const desktopkits = document.querySelectorAll(".desktop-kits");
 // menu desktop icon
 const menuDesktop = document.querySelector('.navbar-desktop');
 // desktop menu
@@ -74,7 +74,7 @@ productList.push({
 });
 productList.push({
   category: 'tools',
-  name: 'Almohadilla de Calefacción Portátil',
+  name: 'Almohadilla de Calefacción',
   price: 1455,
   image: 'https://m.media-amazon.com/images/I/61Nk4eY-k1L._AC_SL1500_.jpg',
 });
@@ -150,12 +150,24 @@ productList.push({
 // menu hamburgesa icon
 menuHamIcon.addEventListener('click', mobilFunction);
 // desktop menus
-desktopAll.addEventListener("click", clearAllproducts);
-desktopCells.addEventListener("click", origin);
-desktopTools.addEventListener("click", origin);
-desktopScreens.addEventListener("click", origin);
-desktopGlue.addEventListener("click", origin);
-desktopkits.addEventListener("click", origin);
+desktopAll[0].addEventListener("click", clearAllproducts);
+desktopAll[1].addEventListener("click", clearAllproducts);
+
+desktopCells[0].addEventListener("click", origin);
+desktopCells[1].addEventListener("click", origin);
+
+desktopTools[0].addEventListener("click", origin);
+desktopTools[1].addEventListener("click", origin);
+
+desktopScreens[0].addEventListener("click", origin);
+desktopScreens[1].addEventListener("click", origin);
+
+desktopGlue[0].addEventListener("click", origin);
+desktopGlue[1].addEventListener("click", origin);
+
+desktopkits[0].addEventListener("click", origin);
+desktopkits[1].addEventListener("click", origin);
+
 // menu desktop icon
 menuDesktop.addEventListener('click', desktopFunction);
 // shopping cart icon
@@ -345,6 +357,7 @@ function clear(event){
 }
 // render trigers
 function origin(event){
+  console.log(event);
   if(event.target.className == "desktop-all"){
     renderProducts(productList, 'all');
   }
@@ -362,6 +375,11 @@ function origin(event){
   }
   else if(event.target.className == "desktop-kits"){
     renderProducts(productList, 'kits');
+  }
+
+  if(event.target.firstChild){
+    closeAll();
+    console.log("cerrando");
   }
 }
 // render function
