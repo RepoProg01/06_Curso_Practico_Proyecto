@@ -13,134 +13,113 @@
 
 <body class="body">
 
-  <!-- ---------------------navbar----------------------- -->
-  <nav>
-    <section class="bar">
-      <div class="menu">|||</div>
-      <div class="navbar-left">
-        <img src="./logos/logo.svg" alt="logo" class="logo">
-  
-        <ul>
-          <li>
-            <a class="desktop-all" href="#">All</a>
-          </li>
-          <li>
-            <a class="desktop-cells" href="#">Cells</a>
-          </li>
-          <li>
-            <a class="desktop-tools" href="#">Tools</a>
-          </li>
-          <li>
-            <a class="desktop-screens" href="#">Screens</a>
-          </li>
-          <li>
-            <a class="desktop-glue" href="#">Glue</a>
-          </li>
-          <li>
-            <a class="desktop-kits" href="#">kits</a>
-          </li>
-        </ul>
+<!-- Notas: 
+  Hace falta repararar estilos y z posicion en el menu del escritorio
 
-      </div>
+  Cerrado de ventanas cuando la descripcion del producto esta 
+  abierta y se presiona el menu del escritorio. 
+
+  Reparar que al agregar articulo desde la ventana de detalles 
+  quita la opacidad del background y altera la sincronia
   
+  cambiar el estilo de colores por una paleta mas atractiva-->
+
+  <!-- -----------------------------navbar-------------------------- -->
+  <nav>
+    <section class="nav-bar">
+
+      <!-- ---------------- icon menu mobile navbar ---------------- -->
+      <div class="menu-icon-mobil">|||</div>
+      <!-- ----------------------- navbar left --------------------- -->
+      <div class="navbar-left">
+        <img class="logo" src="./logos/logo.svg" alt="logo" >
+        <!-- -----------------------nav menu------------------------ -->
+        <div class="nav-menu">
+          <!-- --------------------title mobile--------------------- -->
+          <h3 class="mobile-menu-title">CATEGORIES</h3>
+          <!-- --------------------menu options--------------------- -->
+          <ul class="menu-products">
+            <li>
+              <a class="desktop-all" href="#">All</a>
+            </li>
+            <li>
+              <a class="desktop-cells" href="#">Cells</a>
+            </li>
+            <li>
+              <a class="desktop-tools" href="#">Tools</a>
+            </li>
+            <li>
+              <a class="desktop-screens" href="#">Screens</a>
+            </li>
+            <li>
+              <a class="desktop-glue" href="#">Glue</a>
+            </li>
+            <li>
+              <a class="desktop-kits" href="#">kits</a>
+            </li>
+          </ul>
+          <!-- ----------------------menu share--------------------- -->
+          <section class="current">
+            <ul class="menu-order-acount">
+              <li>
+                <a href="/">My orders</a>
+              </li>
+              <li>
+                <a href="/">My account</a>
+              </li>
+            </ul>
+  
+            <ul class="menu-email-signout">
+              <li>
+                <a href="/" id="email">techdepo@tech.com</a>
+              </li>
+              <li>
+                <a href="/" id="sign-out">Sign out</a>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <!-- ----------------------- navbar right -------------------- -->
       <div class="navbar-right">
-        <ul>
-          <li class="navbar-desktop">Menu</li>
-          <li class="navbar-shopping-cart">
+        <ul class="icon-cart-nav">
+          <!-- ----------------icon menu desktop navbar------------- -->
+          <li class="menu-text-desktop">Menu</li>
+          <!-- -----------icon shopping cart desktop navbar--------- -->
+          <li class="navbar-cart-container">
             <img src="./icons/cart_menu.svg" alt="shopping cart">
+            <!-- --------------------div counter-------------------- -->
             <div class="counter"></div>
           </li>
         </ul>
       </div>
+
     </section>
   </nav>
 
-  <!-- ---------------------mobile menu----------------------- -->
-  <div class="mobile-menu mobile-menu-hide">
-    <h3 class="title">CATEGORIES</h3>
-
-    <ul>
-      <li>
-        <a class="desktop-all" href="#">All</a>
-      </li>
-      <li>
-        <a class="desktop-cells" href="#">Cells</a>
-      </li>
-      <li>
-        <a class="desktop-tools" href="#">Tools</a>
-      </li>
-      <li>
-        <a class="desktop-screens" href="#">Screens</a>
-      </li>
-      <li>
-        <a class="desktop-glue" href="#">Glue</a>
-      </li>
-      <li>
-        <a class="desktop-kits" href="#">kits</a>
-      </li>
-    </ul>
-
-    <ul>
-      <li>
-        <a href="/">My orders</a>
-      </li>
-      <li>
-        <a href="/">My account</a>
-      </li>
-    </ul>
-
-    <ul>
-      <li>
-        <a href="/" id="email">techdepo@tech.com</a>
-      </li>
-      <li>
-        <a href="/" id="sign-out">Sign out</a>
-      </li>
-    </ul>
-
-  </div>
-
-  <!-- ---------------------desktop menu----------------------- -->
-  <div class="desktop-menu desktop-menu-hide">
-    <ul>
-      <li>
-        <a href="/" class="desktop-orders">My orders</a>
-      </li>
-
-      <li>
-        <a href="/" class="desktop-account">My account</a>
-      </li>
-
-      <li>
-        <a href="/" class="desktop-signout">Sign out</a>
-      </li>
-    </ul>
-  </div>
-
-  <!-- ---------------------product detail----------------------- -->
-  <aside class="product-detail product-detail-hide">
-
+  <!-- ------------------------checkout window---------------------- -->
+  <aside class="checkout">
+    <!-- -----------------------checkout title---------------------- -->
     <div class="title-container">
       <img src="./icons/flechita.svg" alt="arrow">
       <h3 class="title">SHOPPING CART</h3>
     </div>
-
+    <!-- -----------------------products added---------------------- -->
     <div class="my-order-content"></div>
-
+    <!-- -------------------------total amount---------------------- -->
     <div class="order">
       <p><span>Total</span></p>
       <p class="total-Amount"></p>
     </div>
-
+    <!-- ---------------------banner empty message------------------ -->
     <div class="cart-empty">
       <p>Shopping Cart is empty</p>
     </div>
-
     <button class="primary-button">Checkout</button>
-    
   </aside>
 
-  <!-- ---------------------banner----------------------- -->
+  <!-- -----------------------------banner-------------------------- -->
   <div class="banner-top inactive">
     <div class="banner-container">
       <div class="banner">
@@ -149,31 +128,30 @@
     </div>
   </div>
 
-  <!-- ---------------------details----------------------- -->
-  <aside class="product-detail-item inactive">
-    <div class="product-detail-container">
-      <div class="product-detail-close x-close">X</div>
-      <img  class="img-src" src="" alt="product">
-      <div class="product-detail-info">
-        <p class="price-detail"></p>
-        <p class="name-Title"></p>
-        <p class="description-detail"></p>
-        <button class="primary-button add-to-cart-button"> Add to cart </button>
-      </div>
+  <!-- -------------------------product details--------------------- -->
+  <div class="product-detail-item inactive">
+    <div class="product-detail-close close-detail-item">X</div>
+    <img  class="img-src" src="" alt="product">
+    <div class="product-detail-info">
+      <p class="price-detail"></p>
+      <p class="name-Title"></p>
+      <p class="description-detail"></p>
+      <button class="primary-button add-to-cart-button"> Add to cart </button>
     </div>
-  </aside>
+  </div>
 
-  <!-- ---------------------dark fade----------------------- -->
+  <!-- ----------------------dark fade background------------------- -->
   <div class="dark inactive"></div>
 
-  <!-- ---------------------product list----------------------- -->
+  <!-- -----------------------main page products ------------------- -->
   <section class="main-container">
     <div class="cards-container">
 
     </div>
   </section>
 
-  <!-- ---------------------js script----------------------- -->
+  <!-- ----------------------------js script------------------------ -->
+  <script src="./products.js"></script>
   <script src="./main.js"></script>
 
 </body>
