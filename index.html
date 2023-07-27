@@ -14,14 +14,8 @@
 <body class="body">
 
 <!-- Notas: 
-  Hace falta repararar estilos y z posicion en el menu del escritorio
+  poner animacion al abrir detalles de producto
 
-  Cerrado de ventanas cuando la descripcion del producto esta 
-  abierta y se presiona el menu del escritorio. 
-
-  Reparar que al agregar articulo desde la ventana de detalles 
-  quita la opacidad del background y altera la sincronia
-  
   cambiar el estilo de colores por una paleta mas atractiva-->
 
   <!-- -----------------------------navbar-------------------------- -->
@@ -130,10 +124,13 @@
 
   <!-- -------------------------product details--------------------- -->
   <div class="product-detail-item inactive">
-    <div class="product-detail-close close-detail-item">X</div>
+    <div class="product-detail-close">X</div>
     <img  class="img-src" src="" alt="product">
     <div class="product-detail-info">
-      <p class="price-detail"></p>
+      <div class="item-price">
+        <p>$</p> 
+        <p class="price-detail"></p>
+      </div>
       <p class="name-Title"></p>
       <p class="description-detail"></p>
       <button class="primary-button add-to-cart-button"> Add to cart </button>
