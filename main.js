@@ -107,7 +107,8 @@ function asideFunction(){
 
 // dark
 function closeAll(){
-  productDetalItem.classList.add("inactive");
+  // productDetalItem.classList.add("inactive");
+  scaleItemClose();
   checkout.classList.remove('check-out-active');
   menuIconMobil.classList.remove("menu-ico-mobil-open");
   navMenu.classList.remove('mobile-menu-active');
@@ -374,7 +375,8 @@ function productDetailsOpen(event){
   descriptionDetail.innerHTML = description;
 
   addToCartButton.addEventListener("click", addToCart);
-  productDetalItem.classList.remove("inactive");
+
+  scaleItemOpen();
   setOnDark();
   delayBackground()
   body.classList.add("scroll-off");
@@ -383,9 +385,22 @@ function productDetailsOpen(event){
 
 // product-detail=items
 function productDetailsCloseFn(){
-  productDetalItem.classList.add("inactive");
+  // productDetalItem.classList.add("inactive");
+  scaleItemClose();
   setOffDark();
 }
 
+function scaleItemOpen(){
+  productDetalItem.classList.remove("inactive");
+  setTimeout(()=>{
+    productDetalItem.classList.add("product-detail-item-max");
+  },0);
+}
+function scaleItemClose(){
+  productDetalItem.classList.remove("product-detail-item-max");
+  setTimeout(()=>{
+    productDetalItem.classList.add("inactive");
+  },400);
+}
 checkCart();
 

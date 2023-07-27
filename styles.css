@@ -410,10 +410,19 @@ nav{
   inset: 0;
   top: 60px;
   width: 338px;
+  scale: .005;
+  transition: transform 400ms ease-out;
+  transition-delay: 100ms;
   padding: 10px;
   border: 1px solid var(--borders);
   background-color: var(--background-color);
   z-index: 6;
+
+}
+.product-detail-item-max{
+  transform: scale(200);
+  transition: transform 400ms ease-out;
+  transition-delay: 100ms;
 }
 .product-detail-close {
   position: absolute;
