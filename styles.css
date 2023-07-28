@@ -400,28 +400,25 @@ nav{
 
 /* -------------------------product details--------------------- */
 /* ############################################################# */
-
 .product-detail-item {
   margin: 0px auto;
   flex-direction: column;
-  align-items: center;
   position: fixed;
   overflow-y: scroll;
-  inset: 0;
+  inset: 0px;
   top: 60px;
+  left: 100%;
   width: 338px;
-  scale: .005;
-  transition: transform 400ms ease-out;
+  transition: transform 600ms ease-out;
   transition-delay: 100ms;
   padding: 10px;
   border: 1px solid var(--borders);
   background-color: var(--background-color);
   z-index: 6;
-
 }
 .product-detail-item-max{
-  transform: scale(200);
-  transition: transform 400ms ease-out;
+  transform: translate(-100%, 0px);
+  transition: transform 600ms ease-out;
   transition-delay: 100ms;
 }
 .product-detail-close {
@@ -495,11 +492,19 @@ nav{
 /* -----------------------main page products ------------------- */
 /* ############################################################# */
 
+
 .main-container{
-  width: 100%;
-  margin-top: 87px;
+  margin-top: 60px;
   z-index: 1;
   overflow: hidden;
+}
+.normal {
+  display: block;
+  width: 100%;
+}
+.window {
+  display: grid;
+  grid-template-columns: auto 360px;
 }
 .cards-container {
   display: grid;
@@ -508,6 +513,8 @@ nav{
   place-content: center;
   margin: 20px 10px;
 }
+
+
 /* ---------------------code injected from js ------------------ */
 .product-card {
   display: flex;
@@ -607,7 +614,7 @@ nav{
 /* ############################################################# */
 
 @media (max-width: 640px) {
-   .menu-icon-mobil {
+  .menu-icon-mobil {
     display: block;
   }
   .menu-text-desktop {
@@ -639,7 +646,6 @@ nav{
     color: var(--text-menu-over);
     font-weight: 700;
   }
-
   .menu-products,
   .menu-order-acount,
   .menu-email-signout{
@@ -656,7 +662,6 @@ nav{
   .menu-email-signout li {
     margin-bottom: 10px;
   }
-
   .menu-order-acount li a:hover{
     color: var(--link);
     border: 1px solid var(--link);
@@ -687,11 +692,15 @@ nav{
     border: none;
     border-radius: 0;
   }
-
   .navbar-desktop {
     display: none;
   }
 
+  /* -----------------------main page products ------------------- */
+  .main-container{
+    display: block;
+    width: 100%;
+  }
   .product-detail {
     width: 360px;
   }
@@ -705,17 +714,25 @@ nav{
     width: 130px;
     height: 130px;
   }
+
+  /* -------------------------product details--------------------- */
   .product-detail-item {
-    top: 60px;
+    left: -0%;
+    transform: translate(140%, 0px);
   }
+  .product-detail-item-max{
+    transform: translate(0%, 0px);
+  } 
+
   .product-info {
     flex-direction: column;
   }
-
   .product-info figure {
     width: 100%;
     justify-content: center;
   }
+
+  
 }
 @media (min-width: 641px) {
   .menu-icon-mobil {
@@ -739,5 +756,6 @@ nav{
   .menu-email-signout li a:hover {
     color: var(--secondary);
   }
+
 }
 
