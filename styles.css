@@ -221,7 +221,7 @@ nav{
 /* ------------------------checkout window---------------------- */
 /* ############################################################# */
 
- .checkout {
+.checkout {
   position: fixed;
   overflow-y: scroll;
   width: 360px;
@@ -307,6 +307,7 @@ nav{
   border: 1px solid var(--borders);
 }
 .item-delete:hover,
+.product-detail-close:hover,
 .close-detail-item:hover {
   background-color: var(--btn-over);
   color: var(--background-color);
@@ -350,6 +351,8 @@ nav{
   font-weight: 700;
   color: #ff8d02;
 }
+.checkout-btn-shopping,
+.add-to-cart-button,
 .primary-button {
   background-color: var(--background-color);
   border-radius: 8px;
@@ -361,6 +364,8 @@ nav{
   font-weight: bold;
   height: 50px;
 }
+.checkout-btn-shopping:hover,
+.add-to-cart-button:hover,
 .primary-button:hover{
   color: var(--white);
   background-color: var(--btn-over);
@@ -401,7 +406,7 @@ nav{
 /* -------------------------product details--------------------- */
 /* ############################################################# */
 .product-detail-item {
-  margin: 0px auto;
+  /* margin: 0px auto; */
   flex-direction: column;
   position: fixed;
   overflow-y: scroll;
@@ -418,7 +423,7 @@ nav{
 }
 .product-detail-item-max{
   transform: translate(-100%, 0px);
-  transition: transform 600ms ease-out;
+  transition: 600ms ease-out;
   transition-delay: 100ms;
 }
 .product-detail-close {
@@ -717,11 +722,15 @@ nav{
 
   /* -------------------------product details--------------------- */
   .product-detail-item {
-    left: -0%;
-    transform: translate(140%, 0px);
+    margin: 0px auto;
+    left: -162%;
+    /* transform: translate(-100%, 0px); */
+    transition: transform 600ms ease-out;
   }
   .product-detail-item-max{
-    transform: translate(0%, 0px);
+    transform: translate(100%, 0px);
+    transition: 600ms ease-out;
+    transition-delay: 100ms;
   } 
 
   .product-info {
